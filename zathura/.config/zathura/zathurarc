@@ -1,0 +1,9 @@
+set selection-clipboard
+
+# invert zathura color
+map <C-i> recolor "true"
+set recolor-reverse-video "true"
+
+# include theme
+# change symlink to theme to change theme
+include theme
