@@ -22,7 +22,7 @@ fi
 #######################################################
 
 # Disable the bell
-if [[ $iatest > 0 ]]; then bind "set bell-style visible"; fi
+# if [[ $iatest > 0 ]]; then bind "set bell-style visible"; fi
 
 # Expand the history size
 export HISTFILESIZE=10000
@@ -116,18 +116,23 @@ alias ping='ping -c 10'
 alias less='less -R'
 alias cls='clear'
 alias apt-get='sudo apt-get'
-alias pacman='sudo pacman'
 alias multitail='multitail --no-repeat -c'
 alias freshclam='sudo freshclam'
 alias e='nvim'
-alias vim='nvim'
 alias vi='nvim'
+alias vim='nvim'
+alias se='sudo nvim'
 alias svi='sudo nvim'
-alias vis='vim "+set si"'
-alias umuount='cd \; umount -f'
+alias svim='sudo nvim'
 alias mount='sudo mount'
 alias r='PYTHONOPTIMIZE=1 ranger'
-alias web='exec chromium'
+alias py='python'
+alias netctl='sudo netctl'
+
+# alias to bash completion commands
+alias pm='sudo pacman -S'
+_completion_loader pacman
+complete -C 'pacman -S' -o default -F _pacman pm
 
 # Change directory aliases
 alias home='cd ~'
@@ -702,3 +707,23 @@ function __setprompt
 	PS4='\[${DARKGRAY}\]+\[${NOCOLOR}\] '
 }
 PROMPT_COMMAND='__setprompt'
+
+# Govind G commands
+# Forcefully unmount a device
+um()
+{
+    cd /
+    sudo umount -f $1
+}
+
+# Go to work directorire
+gt ()
+{
+    case "$1" in
+        "sem"    ) cd /mnt/ag/sem5;;
+        "data"   ) cd /mnt/ag/data;;
+        "pd"     ) cd /mnt/ag/pd;;
+        "lab"    ) cd /mnt/ag/sem5/labs;;
+        "books"  ) cd /mnt/ag/sem5/books;;
+    esac
+}

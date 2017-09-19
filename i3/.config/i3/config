@@ -2,10 +2,8 @@
 #                     MY CONFIG                         #
 #########################################################
 
-# mod = Alt
-set $mod Mod1
-# super = Win
-set $sup Mod4
+# mod = WIn
+set $mod Mod4
 
 # default applications
 set $term termite
@@ -15,8 +13,8 @@ set $music cmus
 
 # application keybindings
 bindsym $mod+Return exec $term
-bindsym $sup+w exec $web
-bindsym $sup+f exec $fm
+bindsym $mod+q exec $web
+bindsym $mod+w exec firefox
 
 # kill focused window
 bindsym $mod+c kill
@@ -129,7 +127,7 @@ bar {
 
 # startup actions
 bindsym $mod+Shift+x exec --no-startup-id i3lock -fec000000
-exec --no-startup-id feh --bg-scale ~/Pictures/walls/34-wall.jpg
+exec --no-startup-id feh --bg-scale ~/Pictures/walls/19-wall.jpg
 exec --no-startup-id compton -b
 
 # Set window border to none

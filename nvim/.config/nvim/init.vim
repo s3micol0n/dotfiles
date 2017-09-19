@@ -4,25 +4,46 @@
 " Use vim-plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'vim-airline/vim-airline'
-Plug 'scrooloose/nerdtree'
-Plug 'fugalh/desert.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'joshdick/onedark.vim'
+
 Plug 'scrooloose/nerdcommenter'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'scrooloose/nerdtree'
 Plug 'easymotion/vim-easymotion'
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-clang'
+Plug 'Shougo/neoinclude.vim'
+Plug 'w0rp/ale'
+
+Plug 'arakashic/chromatica.nvim'
+
+" Plug 'jiangmiao/auto-pairs'
+
+
+" Plug 'neomake/neomake'
+
+Plug 'fugalh/desert.vim'
+Plug 'joshdick/onedark.vim'
 call plug#end()
+
 
 " airline
 let g:airline_powerline_fonts = 1
 " deoplete.
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
+" deoplete-clang
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
+" chromatica
+let g:chromatica#libclang_path='/usr/lib/libclang.so'
+let g:chromatica#enable_at_startup=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
-set history=100
+set history=70
 
 " Enable filetype plugins
 filetype plugin on
@@ -42,6 +63,18 @@ nmap <leader>w :w!<cr>
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
 " command W w !sudo tee % > /dev/null
+
+" Quick save and other commands
+let g:mp=":!gcc % -o %< <CR>"
+map <Space>` :w<CR>
+map <Space>w <C-w>
+map <Space>d :terminal<CR>
+"map <F5> :w<CR>:!gcc<space>%<space>-o<space>%<<CR>
+"map <F6> :botright<Space>vspl<CR>:terminal<Space>gdb<Space>./%<<CR>
+"map <F9> :botright<Space>vspl<CR>:terminal<Space>./%<<CR>
+map <F5> :w<CR>:!gcc<space>%<space>-o<space>%<<CR>:botright<Space>vspl<CR>:terminal<Space>gdb<Space>./%<<CR>
+map <F9> :w<CR>:!gcc<space>%<space>-o<space>%<<CR>:botright<Space>vspl<CR>:terminal<Space>./%<<CR>
+nnoremap <CR> <NOP>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -127,7 +160,7 @@ if (has("nvim"))
     set termguicolors
   endif
 
-" try to use onedark
+" colorschemes = onedark, desert
 try
      colorscheme onedark
 catch
@@ -151,6 +184,9 @@ set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
+
+" change bg to something better
+highlight Normal guibg=#020202
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -211,17 +247,3 @@ augroup resCur
   autocmd!
   autocmd BufReadPost * call setpos(".", getpos("'\""))
 augroup END
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => VIM. LIVE IT.
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Don't use the arrow keys
-noremap <up> <nop>
-inoremap <up> <nop>
-noremap <down> <nop>
-inoremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-
