@@ -72,6 +72,11 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
+# add user's local bin directory to path
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/scripts/final:$PATH"
+
 #######################################################
 # MACHINE SPECIFIC ALIAS'S
 #######################################################
@@ -126,8 +131,13 @@ alias svi='sudo nvim'
 alias svim='sudo nvim'
 alias mount='sudo mount'
 alias r='PYTHONOPTIMIZE=1 ranger'
-alias py='python'
+alias py2='python2'
+alias py3='python3'
+alias yd='youtube-dl'
+alias ym='youtube-dl --extract-audio --audio-format mp3 --audio-quality 0 -o "%(title)s.%(ext)s"'
 alias netctl='sudo netctl'
+alias wsave='wget --mirror --convert-links --adjust-extension --page-requisites --no-parent --no-clobber'
+alias wmin='wget -p -k'
 
 # alias to bash completion commands
 alias pm='sudo pacman -S'
@@ -727,3 +737,47 @@ gt ()
         "books"  ) cd /mnt/ag/sem5/books;;
     esac
 }
+
+# man section
+ms ()
+{
+    man -k . | grep \($1\)
+}
+
+# map caps eith esch
+setxkbmap -option caps:escape
+
+# check login shells
+islog()
+{
+    shopt -q login_shell && echo 'Login shell' || echo 'Not login shell'
+}
+# check interactive shell
+isintr()
+{
+    [[ $- == *i* ]] && echo 'Interactive' || echo 'Not interactive'
+}
+
+# check internet
+# wget
+cinetwget()
+{
+    wget -q --spider http://google.com
+    if [ $? -eq 0 ]; then
+        echo "Online"
+    else
+        echo "Offline"
+    fi
+}
+# nc
+cinetnc()
+{
+    echo -e "GET http://google.com HTTP/1.0\n\n" | nc google.com 80 > /dev/null 2>&1
+    if [ $? -eq 0 ]; then
+        echo "Online"
+    else
+        echo "Offline"
+    fi
+}
+source /usr/share/fzf/completion.bash
+source /usr/share/fzf/key-bindings.bash

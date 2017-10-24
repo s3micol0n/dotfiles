@@ -13,8 +13,10 @@ set $music cmus
 
 # application keybindings
 bindsym $mod+Return exec $term
-bindsym $mod+q exec $web
-bindsym $mod+w exec firefox
+bindsym $mod+w exec $web
+bindsym $mod+b exec calibre
+bindsym $mod+a exec thunar
+bindsym $mod+i exec qtspim
 
 # kill focused window
 bindsym $mod+c kill
@@ -83,6 +85,10 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+# assign calibre to workspace 10
+assign [class="^calibre$"] 10
+
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -127,7 +133,7 @@ bar {
 
 # startup actions
 bindsym $mod+Shift+x exec --no-startup-id i3lock -fec000000
-exec --no-startup-id feh --bg-scale ~/Pictures/walls/19-wall.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/walls/195-wall.jpg
 exec --no-startup-id compton -b
 
 # Set window border to none

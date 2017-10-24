@@ -32,76 +32,45 @@ filter_unmatched_urls = true
 #modify_other_keys = false
 
 [colors]
-# cursor = #dcdccc
-# cursor_foreground = #dcdccc
-# foreground = #dcdccc
-# foreground_bold = #ffffff
-# background = #3f3f3f
-
-# 20% background transparency (requires a compositor)
-# background = rgba(63, 63, 63, 0.8)
-
-# if unset, will reverse foreground and background
-#highlight = #2f2f2f
-
-[colors -default]
-# colors from color0 to color254 can be set
-#color0 = #3f3f3f
-#color1 = #705050
-#color2 = #60b48a
-#color3 = #dfaf8f
-#color4 = #506070
-#color5 = #dc8cc3
-#color6 = #8cd0d3
-#color7 = #dcdccc
-#color8 = #709080
-#color9 = #dca3a3
-#color10 = #c3bf9f
-#color11 = #f0dfaf
-#color12 = #94bff3
-#color13 = #ec93d3
-#color14 = #93e0e3
-#color15 = #ffffff
-
-[colors]
 
 # special
-foreground      = #d0d0d0
-foreground_bold = #d0d0d0
-cursor          = #d0d0d0
-background      = #000000
+foreground      = #a3a3a3
+foreground_bold = #a3a3a3
+cursor          = #a3a3a3
+background      = #090909
 
 # black
-color0  = #000000
-color8  = #808080
+color0  = #2a2e31
+color8  = #ea8066
 
 # red
-color1  = #ff0000
-color9  = #ff0000
+color1  = #fc3a43
+color9  = #f22b6f
 
 # green
-color2  = #33ff00
-color10 = #33ff00
+color2  = #7cc04d
+color10 = #3ac876
 
 # yellow
-color3  = #ff0099
-color11 = #ff0099
+color3  = #dcbc77
+color11 = #c4c5a1
 
 # blue
-color4  = #0066ff
-color12 = #0066ff
+color4  = #6d8aff
+color12 = #67b4ff
 
 # magenta
-color5  = #cc00ff
-color13 = #cc00ff
+color5  = #c159e2
+color13 = #9d65ff
 
 # cyan
-color6  = #00ffff
-color14 = #00ffff
+color6  = #6fdbc3
+color14 = #75d872
 
 # white
-color7  = #d0d0d0
-color15 = #ffffff
+color7  = #d4804d
+color15 = #d84a6c
+
 
 [hints]
 #font = Monospace 12

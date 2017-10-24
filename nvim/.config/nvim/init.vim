@@ -4,6 +4,7 @@
 " Use vim-plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'scrooloose/nerdcommenter'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -24,11 +25,21 @@ Plug 'arakashic/chromatica.nvim'
 
 Plug 'fugalh/desert.vim'
 Plug 'joshdick/onedark.vim'
+Plug 'bluz71/vim-moonfly-colors'
+
+Plug 'majutsushi/tagbar'
+
+Plug 'vhda/verilog_systemverilog.vim'
+
+Plug 'luochen1990/rainbow'
+
 call plug#end()
 
 
 " airline
 let g:airline_powerline_fonts = 1
+" airline-themes
+let g:airline_theme='base16_spacemacs'
 " deoplete.
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
@@ -38,10 +49,19 @@ let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
 " chromatica
 let g:chromatica#libclang_path='/usr/lib/libclang.so'
 let g:chromatica#enable_at_startup=1
+" moonfly
+let g:moonflyCursorLineNr = 1
+let g:moonflyCursorColor = 1
+let g:moonflyTerminalColors = 1
+" rainbow
+let g:rainbow_active = 1
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" number lines
+set number
 " Sets how many lines of history VIM has to remember
 set history=70
 
@@ -75,6 +95,10 @@ map <Space>d :terminal<CR>
 map <F5> :w<CR>:!gcc<space>%<space>-o<space>%<<CR>:botright<Space>vspl<CR>:terminal<Space>gdb<Space>./%<<CR>
 map <F9> :w<CR>:!gcc<space>%<space>-o<space>%<<CR>:botright<Space>vspl<CR>:terminal<Space>./%<<CR>
 nnoremap <CR> <NOP>
+nmap <F8> :TagbarToggle<CR>
+
+" Enable mouse
+set mouse=a
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -162,7 +186,7 @@ if (has("nvim"))
 
 " colorschemes = onedark, desert
 try
-     colorscheme onedark
+     colorscheme moonfly
 catch
 endtry
 set background=dark
@@ -186,7 +210,7 @@ set encoding=utf8
 set ffs=unix,dos,mac
 
 " change bg to something better
-highlight Normal guibg=#020202
+ " highlight Normal guibg=#131313
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
