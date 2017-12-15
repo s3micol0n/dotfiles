@@ -33,8 +33,19 @@ Plug 'vhda/verilog_systemverilog.vim'
 
 Plug 'luochen1990/rainbow'
 
+Plug 'lervag/vimtex'
+
 call plug#end()
 
+
+" easymotion
+" map <Leader> <Plug>(easymotion-prefix)
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 " airline
 let g:airline_powerline_fonts = 1
@@ -74,8 +85,8 @@ set autoread
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = " "
-let g:mapleader = " "
+let mapleader=" "
+let g:mapleader=" "
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -85,16 +96,17 @@ nmap <leader>w :w!<cr>
 " command W w !sudo tee % > /dev/null
 
 " Quick save and other commands
-let g:mp=":!gcc % -o %< <CR>"
-map <Space>` :w<CR>
-map <Space>w <C-w>
-map <Space>d :terminal<CR>
+"let g:mp=":!gcc % -o %< <CR>"
+"map <Space>` :w<CR>
+"map <Space>w <C-w>
+"map <Space>d :terminal<CR>
 "map <F5> :w<CR>:!gcc<space>%<space>-o<space>%<<CR>
 "map <F6> :botright<Space>vspl<CR>:terminal<Space>gdb<Space>./%<<CR>
 "map <F9> :botright<Space>vspl<CR>:terminal<Space>./%<<CR>
-map <F5> :w<CR>:!gcc<space>%<space>-o<space>%<<CR>:botright<Space>vspl<CR>:terminal<Space>gdb<Space>./%<<CR>
-map <F9> :w<CR>:!gcc<space>%<space>-o<space>%<<CR>:botright<Space>vspl<CR>:terminal<Space>./%<<CR>
-nnoremap <CR> <NOP>
+"map <F5> :w<CR>:!gcc<space>%<space>-o<space>%<<CR>:botright<Space>vspl<CR>:terminal<Space>gdb<Space>./%<<CR>
+"map <F9> :w<CR>:!gcc<space>%<space>-o<space>%<<CR>:botright<Space>vspl<CR>:terminal<Space>./%<<CR>
+"nnoremap <CR> <NOP>
+
 nmap <F8> :TagbarToggle<CR>
 
 " Enable mouse

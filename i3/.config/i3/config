@@ -7,7 +7,7 @@ set $mod Mod4
 
 # default applications
 set $term termite
-set $web chromium
+set $web firefox
 set $fm thunar
 set $music cmus
 
@@ -133,7 +133,7 @@ bar {
 
 # startup actions
 bindsym $mod+Shift+x exec --no-startup-id i3lock -fec000000
-exec_always --no-startup-id feh --bg-scale ~/Pictures/walls/195-wall.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/walls/202-wall.jpg
 exec --no-startup-id compton -b
 
 # Set window border to none

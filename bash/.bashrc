@@ -138,6 +138,7 @@ alias ym='youtube-dl --extract-audio --audio-format mp3 --audio-quality 0 -o "%(
 alias netctl='sudo netctl'
 alias wsave='wget --mirror --convert-links --adjust-extension --page-requisites --no-parent --no-clobber'
 alias wmin='wget -p -k'
+alias nn='env "LD_PRELOAD=libcurl.so.3" nixnote2'
 
 # alias to bash completion commands
 alias pm='sudo pacman -S'
